@@ -76,7 +76,6 @@ public class LineDestructionSystem : ComponentSystem
             {
                 lineData.LinePositions.RemoveAt(0);
                 inkToRefund = firstToSecondVector.magnitude * lineData.InkRefundedPerDistance;
-                Debug.Log(inkToRefund);
             }
         }
         else
