@@ -13,11 +13,20 @@ public class LineDrawerSystem : ComponentSystem
         public TimedDestructionData timedDestructionData;
         public MouseInputData mouseData;
     }
-	
-	/// <summary>
+
+    struct InkComponents
+    {
+        public readonly int Length;
+        public ComponentArray<InkData> inkData;
+    }
+
+    [Inject]
+    InkComponents m_inkComponents;
+
+    /// <summary>
     /// Update.
     /// </summary>
-	protected override void OnUpdate ()
+    protected override void OnUpdate ()
     {
         // Update each component with the line data.
 		foreach(var entity in GetEntities<Components>())
@@ -28,13 +37,12 @@ public class LineDrawerSystem : ComponentSystem
             }
 
             // Handle releasing the mouse to stop drawing.
-            if(entity.mouseData.MouseButtonUp || !entity.mouseData.MouseInValidPosition)
+            if(entity.mouseData.MouseButtonUp || !entity.mouseData.MouseInValidPosition || m_inkComponents.inkData[0].RemainingInk <= 0)
             {
-                entity.lineUpdateData.HasBeenPlaced = true;
-                entity.timedDestructionData.StartTimer = true;
+                PlaceLine(entity);
             }
 
-            if(entity.mouseData.MouseInValidPosition)
+            if(entity.mouseData.MouseInValidPosition && m_inkComponents.inkData[0].RemainingInk > 0 && !entity.lineUpdateData.HasBeenPlaced)
             {
                 // Determine if a new anchor point is needed.
                 Vector3 mousePosition = entity.mouseData.MousePositionWorldSpace;
@@ -51,6 +59,14 @@ public class LineDrawerSystem : ComponentSystem
                     entity.lineDrawerData.PreviousAnchoredLinePosition = mousePosition;
 
                     // Lock in the spent ink.
+                    if(entity.lineDrawerData.LinePositions.Count > 2)
+                    {
+                        InkSystem.SetUsedInk(m_inkComponents.inkData[0], entity.lineDrawerData.InkUsedPerDistance * currentDistance);
+                        if(m_inkComponents.inkData[0].RemainingInk <= 0)
+                        {
+                            PlaceLine(entity);
+                        }
+                    }
                 }
                 else
                 {
@@ -67,4 +83,13 @@ public class LineDrawerSystem : ComponentSystem
             entity.lineRenderer.SetPositions(entity.lineDrawerData.LinePositions.ToArray());
         }
 	}
+
+    /// <summary>
+    /// Stop drawing the line.
+    /// </summary>
+    private void PlaceLine(Components entity)
+    {
+        entity.lineUpdateData.HasBeenPlaced = true;
+        entity.timedDestructionData.StartTimer = true;
+    }
 }

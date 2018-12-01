@@ -129,7 +129,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 116
   m_CollisionDetection: 0
 --- !u!114 &114351895663527670
 MonoBehaviour:
@@ -154,11 +154,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MinWalkSpeed: 1
-  MaxWalkSpeed: 3
+  MaxWalkSpeed: 8
   MinAngle: 0
   MaxAngle: 360
   MinWalkTime: 1
-  MaxWalkTime: 3
+  MaxWalkTime: 6
   MinRestTime: 1
   MaxRestTime: 3
   Walking: 0

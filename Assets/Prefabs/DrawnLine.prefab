@@ -58,6 +58,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxAllowedAngle: 1
   MinAnchorDistance: 0.5
+  InkUsedPerDistance: 0.01
+  InkRefundedPerDistance: 0.01
+  DestructionDistancePerSecond: 12
   PreviousAnchoredLinePosition: {x: 0, y: 0, z: 0}
   LinePositions: []
 --- !u!114 &114092853971281106
