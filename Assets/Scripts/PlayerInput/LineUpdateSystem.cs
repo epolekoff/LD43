@@ -17,6 +17,7 @@ public class LineUpdateSystem : ComponentSystem
         public readonly int Length;
         public ComponentArray<LineUpdateData> lineUpdateData;
         public ComponentArray<LineDrawerData> lineDrawerData; // TODO: Ideally, I would pull LinePositions out into a new object.
+        public ComponentArray<LineRenderer> lineRenderer;
     }
 
     [Inject]
@@ -33,10 +34,15 @@ public class LineUpdateSystem : ComponentSystem
     protected override void OnUpdate()
     {
         Dictionary<int, ForceEffect> forceEffectsByReceiverIndex = new Dictionary<int, ForceEffect>();
+        float deltaTime = Time.deltaTime;
 
         // Iterate the lines and gather all objects in range.
         for (int l = 0; l < m_Lines.Length; l++)
         {
+            // Scroll the UVs of the line.
+            m_Lines.lineRenderer[l].material.mainTextureOffset += m_Lines.lineUpdateData[l].ScrollSpeed * deltaTime;
+
+            // Iterate all of the receivers.
             for (int r = 0; r < m_Receivers.Length; r++)
             {
                 // Don't apply force to an object twice.

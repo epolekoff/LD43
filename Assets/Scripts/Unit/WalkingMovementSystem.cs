@@ -13,6 +13,8 @@ public class WalkingMovementSystem : ComponentSystem
         public Transform transform;
         public Rigidbody rigidbody;
         public WalkingMovementData movement;
+        public Animator animator;
+        public SpriteRenderer sprite;
     }
     
     /// <summary>
@@ -24,7 +26,7 @@ public class WalkingMovementSystem : ComponentSystem
 
         foreach(var entity in GetEntities<Components>())
         {
-            UpdateWalking(entity.transform, entity.rigidbody, entity.movement, deltaTime);
+            UpdateWalking(entity.transform, entity.rigidbody, entity.movement, entity.animator, entity.sprite, deltaTime);
         }
 	}
 
@@ -35,6 +37,8 @@ public class WalkingMovementSystem : ComponentSystem
         Transform transform,
         Rigidbody rigidbody,
         WalkingMovementData movement,
+        Animator animator,
+        SpriteRenderer sprite,
         float deltaTime)
     {
 
@@ -44,11 +48,15 @@ public class WalkingMovementSystem : ComponentSystem
             rigidbody.MovePosition(transform.position + (movement.CurrentDirection * movement.CurrentWalkSpeed) * deltaTime);
         }
 
+        // Flip the sprite if needed.
+        sprite.flipX = movement.CurrentDirection.x < 0;
+
         // Toggle between resting and walking.
         movement.CurrentTimer -= deltaTime;
         if (movement.CurrentTimer <= 0)
         {
             movement.Walking = !movement.Walking;
+            animator.SetTrigger(movement.Walking ? "Run" : "Dance");
 
             // Set the new random values.
             SetRandomValues(movement);

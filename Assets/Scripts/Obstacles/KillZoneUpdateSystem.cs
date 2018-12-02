@@ -40,7 +40,10 @@ public class KillZoneUpdateSystem : ComponentSystem
             // Handle the killing by turning on the collider.
             if(m_entities.killZone[i].Timer <= 0)
             {
-                m_entities.killZone[i].Collider.enabled = true;
+                foreach(var collider in m_entities.killZone[i].Collider)
+                {
+                    collider.enabled = true;
+                }
                 GameObject.Destroy(m_entities.gameObjects[i], 0.1f);
             }
         }

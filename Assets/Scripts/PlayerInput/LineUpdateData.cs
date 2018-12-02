@@ -9,6 +9,7 @@ public class LineUpdateData : MonoBehaviour
     public float ForceMax;
     public float ForceRangeMin;
     public float ForceRangeMax;
+    public Vector2 ScrollSpeed;
 
     [Header("Members")]
     public bool HasBeenPlaced;

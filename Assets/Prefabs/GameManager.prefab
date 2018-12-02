@@ -57,6 +57,6 @@ MonoBehaviour:
   MaxY: 10
   SpawnHeight: 0.5
   UnitPrefab: {fileID: 1929513609417668, guid: 092d97baeb743344d96d3802809ae5f3, type: 2}
-  NumUnitsToSpawn: 200
+  NumUnitsToSpawn: 300
   GameCamera: {fileID: 0}
   LinePrefab: {fileID: 1404372502944664, guid: f80413c270d7e5a4aa760d1214110720, type: 2}

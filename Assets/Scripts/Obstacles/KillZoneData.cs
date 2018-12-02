@@ -7,7 +7,7 @@ public class KillZoneData : MonoBehaviour
 {
     [Header("Constants")]
     public float TimerMax;
-    public Collider Collider;
+    public List<Collider> Collider;
     public TMPro.TextMeshProUGUI CountdownText;
 
 
