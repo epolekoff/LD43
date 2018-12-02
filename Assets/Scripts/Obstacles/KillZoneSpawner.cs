@@ -19,8 +19,10 @@ public class KillZoneSpawner : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-        UpdateSpawnKillZone();
-
+        if(GameManager.Instance.GameActive)
+        {
+            UpdateSpawnKillZone();
+        }
     }
 
     /// <summary>

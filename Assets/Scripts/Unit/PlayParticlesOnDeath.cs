@@ -7,11 +7,10 @@ public class PlayParticlesOnDeath : MonoBehaviour
     public GameObject ParticlesBone;
     public GameObject ParticlesPrefab;
 
-
     /// <summary>
-    /// When this thing dies, enable some particles.
+    /// Die
     /// </summary>
-    void OnDestroy()
+    public void Die()
     {
         var go = GameObject.Instantiate(ParticlesPrefab);
         go.transform.position = ParticlesBone.transform.position;

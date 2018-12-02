@@ -17,6 +17,11 @@ public class LineSpawnSystem : ComponentSystem
     /// </summary>
     protected override void OnUpdate()
     {
+        if(!GameManager.Instance.GameActive)
+        {
+            return;
+        }
+        
         // Update each component with the line data.
         foreach (var entity in GetEntities<Components>())
         {

@@ -241,8 +241,8 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: 3
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 3f4df5b2002718a47ad881d59e0fc86f, type: 2}
-  m_sharedMaterial: {fileID: 21516690925398942, guid: 3f4df5b2002718a47ad881d59e0fc86f,
+  m_fontAsset: {fileID: 11400000, guid: fc7ad0679ddc6474d844881bd237fb03, type: 2}
+  m_sharedMaterial: {fileID: 21308423020836242, guid: fc7ad0679ddc6474d844881bd237fb03,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -267,8 +267,8 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 2.7
-  m_fontSizeBase: 2.7
+  m_fontSize: 3.6
+  m_fontSizeBase: 3.6
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

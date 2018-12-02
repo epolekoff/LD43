@@ -60,3 +60,9 @@ MonoBehaviour:
   NumUnitsToSpawn: 300
   GameCamera: {fileID: 0}
   LinePrefab: {fileID: 1404372502944664, guid: f80413c270d7e5a4aa760d1214110720, type: 2}
+  GameActive: 1
+  GameTime: 60
+  GameTimerText: {fileID: 0}
+  TitleScreenCanvas: {fileID: 0}
+  EndGameCanvas: {fileID: 0}
+  GameCanvas: {fileID: 0}

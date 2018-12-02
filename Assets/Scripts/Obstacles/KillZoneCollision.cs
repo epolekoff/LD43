@@ -19,6 +19,11 @@ public class KillZoneCollision : MonoBehaviour {
     /// </summary>
     public void OnTriggerEnter(Collider col)
     {
+        PlayParticlesOnDeath script = col.transform.GetComponent<PlayParticlesOnDeath>();
+        if (script != null)
+        {
+            script.Die();
+        }
         Destroy(col.transform.gameObject);
     }
 }
