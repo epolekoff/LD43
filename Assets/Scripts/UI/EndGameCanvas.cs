@@ -24,7 +24,7 @@ public class EndGameCanvas : MonoBehaviour
     private const int UnitCountForMaster = 300;
     private const int UnitCountForHero = 250;
     private const int UnitCountForSacrificer = 100;
-    private const int UnitCountForEmpty = 30;
+    private const int UnitCountForEmpty = 50;
 
     // Replay the game.
     public void OnReplayButtonPressed()

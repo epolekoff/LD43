@@ -66,3 +66,5 @@ MonoBehaviour:
   TitleScreenCanvas: {fileID: 0}
   EndGameCanvas: {fileID: 0}
   GameCanvas: {fileID: 0}
+  GameMusicSource: {fileID: 0}
+  MenuMusicSource: {fileID: 0}

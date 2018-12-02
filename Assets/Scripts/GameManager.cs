@@ -33,6 +33,10 @@ public class GameManager : Singleton<GameManager>
     public EndGameCanvas EndGameCanvas;
     public GameObject GameCanvas;
 
+    [Header("Audio")]
+    public AudioSource GameMusicSource;
+    public AudioSource MenuMusicSource;
+
     // Use this for initialization
     void Start ()
     {
@@ -127,5 +131,8 @@ public class GameManager : Singleton<GameManager>
 
         GameCanvas.SetActive(true);
         TitleScreenCanvas.SetActive(false);
+
+        MenuMusicSource.Stop();
+        GameMusicSource.Play();
     }
 }
