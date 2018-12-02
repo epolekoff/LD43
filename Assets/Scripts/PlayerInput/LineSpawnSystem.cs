@@ -31,6 +31,8 @@ public class LineSpawnSystem : ComponentSystem
                 var lineGo = GameObject.Instantiate(GameManager.Instance.LinePrefab);
                 var newLineData = lineGo.GetComponent<LineDrawerData>();
                 newLineData.LinePositions.Add(entity.mouseData.MousePositionWorldSpace);
+
+                AudioManager.Instance.PlaySound(AudioManager.Instance.LineDrawingSound);
             }
         }
     }

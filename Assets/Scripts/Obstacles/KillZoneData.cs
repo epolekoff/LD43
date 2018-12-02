@@ -13,4 +13,5 @@ public class KillZoneData : MonoBehaviour
 
     [Header("Members")]
     public float Timer;
+    public bool HasExploded;
 }

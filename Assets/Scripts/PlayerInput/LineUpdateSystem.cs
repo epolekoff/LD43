@@ -76,6 +76,12 @@ public class LineUpdateSystem : ComponentSystem
         {
             ForceEffect forceEffect = forceEffectsByReceiverIndex[index];
             forceEffect.rigidbody.AddForce(forceEffect.force);
+
+            if(UnityEngine.Random.Range(0, 1000) < 1)
+            {
+                // Play a happy sound
+                AudioManager.Instance.PlayHappyVoice();
+            }
         }
     }
 }

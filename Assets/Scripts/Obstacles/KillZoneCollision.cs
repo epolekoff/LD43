@@ -29,6 +29,17 @@ public class KillZoneCollision : MonoBehaviour {
         if (diamond != null && diamond.enabled)
         {
             GameManager.Instance.AddUnits(30, 1);
+
+            // Play a powerup sound
+            AudioManager.Instance.PlaySound(AudioManager.Instance.GoldenDeathSound);
+        }
+        else
+        {
+            // Play a death sound
+            if(Random.Range(0, 100) < 10)
+            {
+                AudioManager.Instance.PlayDeathVoice();
+            }
         }
 
         Destroy(col.transform.gameObject);

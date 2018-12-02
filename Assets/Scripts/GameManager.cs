@@ -132,7 +132,11 @@ public class GameManager : Singleton<GameManager>
         GameCanvas.SetActive(true);
         TitleScreenCanvas.SetActive(false);
 
+        // Play the game music
         MenuMusicSource.Stop();
         GameMusicSource.Play();
+
+        // Play the button sound
+        AudioManager.Instance.PlaySound(AudioManager.Instance.ButtonPressSound);
     }
 }
