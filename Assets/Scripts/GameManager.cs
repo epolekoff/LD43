@@ -46,6 +46,11 @@ public class GameManager : Singleton<GameManager>
 	void Update ()
     {
         UpdateGameTimer();
+
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
 	}
 
     /// <summary>
