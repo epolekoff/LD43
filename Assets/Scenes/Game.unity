@@ -179,6 +179,48 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1001 &407047605
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4005547323129786, guid: 092d97baeb743344d96d3802809ae5f3, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -11.31
+      objectReference: {fileID: 0}
+    - target: {fileID: 4005547323129786, guid: 092d97baeb743344d96d3802809ae5f3, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0.746
+      objectReference: {fileID: 0}
+    - target: {fileID: 4005547323129786, guid: 092d97baeb743344d96d3802809ae5f3, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4005547323129786, guid: 092d97baeb743344d96d3802809ae5f3, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4005547323129786, guid: 092d97baeb743344d96d3802809ae5f3, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4005547323129786, guid: 092d97baeb743344d96d3802809ae5f3, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4005547323129786, guid: 092d97baeb743344d96d3802809ae5f3, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4005547323129786, guid: 092d97baeb743344d96d3802809ae5f3, type: 2}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 092d97baeb743344d96d3802809ae5f3, type: 2}
+  m_IsPrefabAsset: 0
 --- !u!1001 &429350160
 Prefab:
   m_ObjectHideFlags: 0
@@ -564,7 +606,17 @@ Prefab:
       value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 1057323226162546, guid: 8734786de5b7d4443b7e8a2738d83ce7, type: 2}
-      propertyPath: m_IsActive
+      propertyPath: m_Name
+      value: SmallSphereKillZone
+      objectReference: {fileID: 0}
+    - target: {fileID: 114079934587381624, guid: 8734786de5b7d4443b7e8a2738d83ce7,
+        type: 2}
+      propertyPath: m_havePropertiesChanged
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114079934587381624, guid: 8734786de5b7d4443b7e8a2738d83ce7,
+        type: 2}
+      propertyPath: m_isInputParsingRequired
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []

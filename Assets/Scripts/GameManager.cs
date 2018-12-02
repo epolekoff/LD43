@@ -15,6 +15,7 @@ public class GameManager : Singleton<GameManager>
     [Header("Unit Spawning")]
     public GameObject UnitPrefab;
     public int NumUnitsToSpawn;
+    private readonly string[] StartingAnimationStates = { "Square", "Circle", "Triangle" };
 
     [Header("Line Drawing")]
     public Camera GameCamera;
@@ -42,6 +43,9 @@ public class GameManager : Singleton<GameManager>
             Vector3 position = new Vector3(Random.Range(MinX, MaxX), SpawnHeight, Random.Range(MinY, MaxY));
             var go = GameObject.Instantiate(UnitPrefab);
             go.transform.position = position;
+
+            // Set the starting animation for the sprites.
+            go.GetComponentInChildren<Animator>().SetTrigger(StartingAnimationStates[Random.Range(0, StartingAnimationStates.Length)]);
         }
     }
 }

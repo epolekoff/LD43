@@ -6,27 +6,42 @@ using System;
 
 public class KillZoneUpdateSystem : ComponentSystem
 {
-    struct Entities
+
+    public struct Entities
     {
-        public KillZoneData killZone;
+        public readonly int Length;
+        public GameObjectArray gameObjects;
+        public ComponentArray<KillZoneData> killZone;
     }
+
+    [Inject]
+    public Entities m_entities;
 
     protected override void OnUpdate()
     {
         float deltaTime = Time.deltaTime;
 
-        foreach(var entity in GetEntities<Entities>())
+        for(int i = 0; i < m_entities.Length; i++)
         {
+
             // Count down.
-            entity.killZone.Timer -= deltaTime;
+            m_entities.killZone[i].Timer -= deltaTime;
 
             // Update the displayed text.
-            entity.killZone.CountdownText.text = Mathf.CeilToInt(entity.killZone.Timer).ToString();
+            if(m_entities.killZone[i].Timer > 0)
+            {
+                m_entities.killZone[i].CountdownText.text = Mathf.CeilToInt(m_entities.killZone[i].Timer).ToString();
+            }
+            else
+            {
+                m_entities.killZone[i].CountdownText.text = "";
+            }
 
             // Handle the killing by turning on the collider.
-            if(entity.killZone.Timer <= 0)
+            if(m_entities.killZone[i].Timer <= 0)
             {
-                entity.killZone.Collider.enabled = true;
+                m_entities.killZone[i].Collider.enabled = true;
+                GameObject.Destroy(m_entities.gameObjects[i], 0.1f);
             }
         }
     }
