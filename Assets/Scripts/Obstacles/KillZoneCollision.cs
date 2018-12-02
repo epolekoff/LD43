@@ -24,6 +24,13 @@ public class KillZoneCollision : MonoBehaviour {
         {
             script.Die();
         }
+
+        var diamond = col.transform.GetComponent<DiamondUnit>();
+        if (diamond != null && diamond.enabled)
+        {
+            GameManager.Instance.AddUnits(25, 1);
+        }
+
         Destroy(col.transform.gameObject);
     }
 }

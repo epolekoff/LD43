@@ -56,17 +56,32 @@ public class GameManager : Singleton<GameManager>
     /// <summary>
     /// Spawn a bunch of units.
     /// </summary>
-    private void AddUnits(int amount)
+    public void AddUnits(int amount, int numDiamonds = 2)
     {
-        for(int i = 0; i < amount; i++)
+        for(int i = 0; i < amount - numDiamonds; i++)
         {
-            // Spawn the unit at a random position.
-            Vector3 position = new Vector3(Random.Range(MinX, MaxX), SpawnHeight, Random.Range(MinY, MaxY));
-            var go = GameObject.Instantiate(UnitPrefab);
-            go.transform.position = position;
+            SpawnUnit(StartingAnimationStates[Random.Range(0, StartingAnimationStates.Length)]);
+        }
 
-            // Set the starting animation for the sprites.
-            go.GetComponentInChildren<Animator>().SetTrigger(StartingAnimationStates[Random.Range(0, StartingAnimationStates.Length)]);
+        // Spawn 2 goldens
+        for(int i = 0; i < numDiamonds; i++)
+        {
+            SpawnUnit("Diamond");
+        }
+    }
+
+    private void SpawnUnit(string unitType)
+    {
+        // Spawn the unit at a random position.
+        Vector3 position = new Vector3(Random.Range(MinX, MaxX), SpawnHeight, Random.Range(MinY, MaxY));
+        var go = GameObject.Instantiate(UnitPrefab);
+        go.transform.position = position;
+
+        // Set the starting animation for the sprites.
+        go.GetComponentInChildren<Animator>().SetTrigger(unitType);
+        if(unitType == "Diamond")
+        {
+            go.GetComponent<DiamondUnit>().enabled = true;
         }
     }
 
