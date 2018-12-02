@@ -28,7 +28,7 @@ public class KillZoneCollision : MonoBehaviour {
         var diamond = col.transform.GetComponent<DiamondUnit>();
         if (diamond != null && diamond.enabled)
         {
-            GameManager.Instance.AddUnits(25, 1);
+            GameManager.Instance.AddUnits(30, 1);
         }
 
         Destroy(col.transform.gameObject);
